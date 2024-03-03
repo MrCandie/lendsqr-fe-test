@@ -1,0 +1,96 @@
+@import "./helper/helper.scss";
+@import "./variables/variable.scss";
+.login {
+  @include flex(center, center, no-wrap, 100%, row, 0rem);
+  background-color: white;
+  height: 100vh;
+
+  // image container
+  .img-container {
+    @include flex(center, center, no-wrap, 100%, column, 7rem);
+    width: 50%;
+    height: 100vh;
+    padding: 2rem;
+
+    .inner-image-container {
+      @include flex(start, center, no-wrap, 70%, column, 7rem);
+      // logo
+
+      .logo {
+        @include flex(start, start, no-wrap, 100%, row, 0rem);
+        img {
+          width: 150px;
+          object-fit: contain;
+          height: 30px;
+        }
+      }
+      .auth {
+        @include flex(start, start, no-wrap, 100%, row, 0rem);
+        width: 80%;
+        img {
+          width: 100%;
+          object-fit: contain;
+          height: 330px;
+        }
+      }
+    }
+  }
+
+  // contsiner
+  .container {
+    @include flex(center, center, no-wrap, 100%, column, 1rem);
+    width: 50%;
+    height: 100vh;
+    padding: 1rem;
+
+    .inner-container {
+      @include flex(start, center, no-wrap, 70%, column, 1rem);
+
+      .logo-mobile {
+        display: none;
+      }
+      h1 {
+        color: $titleColor;
+        font-size: 40px;
+        font-weight: bold;
+        margin: 0rem;
+      }
+      p {
+        color: $textColor;
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0rem;
+      }
+    }
+  }
+  a {
+    color: $brandColor;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .login {
+    .img-container {
+      display: none;
+    }
+    .container {
+      width: 100%;
+      .inner-container {
+        width: 90%;
+        h1 {
+          font-size: 24px;
+        }
+        .logo-mobile {
+          display: block;
+          margin-bottom: 4rem;
+          img {
+            width: 80px;
+          }
+        }
+      }
+    }
+  }
+}

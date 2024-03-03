@@ -1,0 +1,14 @@
+@import "./helper/helper.scss";
+@import "./variables/variable.scss";
+
+div {
+  @include flex(start, start, no-wrap, 100%, column, 1rem);
+  input {
+    padding: 1rem 0rem;
+    width: 100%;
+    outline: none;
+  }
+  input::placeholder {
+    padding: 1rem;
+  }
+}

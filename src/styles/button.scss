@@ -1,0 +1,17 @@
+@import "./helper/helper.scss";
+@import "./variables/variable.scss";
+
+button {
+  background-color: $brandColor;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 80%;
+  transition: all;
+  box-shadow: $boxShadow;
+}
