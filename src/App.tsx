@@ -9,6 +9,7 @@ import { lazy, Suspense } from "react";
 import ReusableSpinner from "./components/reusables/ReusableSpinner";
 
 const Login = lazy(() => import("./components/auth/Login"));
+const Dashboard = lazy(() => import("./components/dashboard/Dashboard"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +18,14 @@ const router = createBrowserRouter(
         element={
           <Suspense fallback={<ReusableSpinner height="100vh" />}>
             <Login />
+          </Suspense>
+        }
+        path="/login"
+      />
+      <Route
+        element={
+          <Suspense fallback={<ReusableSpinner height="100vh" />}>
+            <Dashboard />
           </Suspense>
         }
         path="/"

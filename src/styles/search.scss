@@ -1,0 +1,35 @@
+@import "./helper/helper.scss";
+@import "./variables/variable.scss";
+
+.search {
+  @include flex(center, center, no-wrap, 40%, row, 0rem);
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+
+  input {
+    border: none;
+    padding: none;
+    outline: none;
+    background-color: transparent;
+    text-align: start;
+    flex: 1;
+  }
+  input::placeholder {
+    padding: 1rem;
+  }
+  button {
+    background-color: $brandColor;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    margin: 0rem;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    opacity: 80%;
+    transition: all;
+  }
+}

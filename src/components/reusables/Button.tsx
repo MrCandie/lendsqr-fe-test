@@ -8,7 +8,7 @@ interface Button {
 
 export default function Button({ title, onClick, width }: Button) {
   return (
-    <button style={{ width }} onClick={onClick}>
+    <button className="button" style={{ width }} onClick={onClick}>
       {title}
     </button>
   );

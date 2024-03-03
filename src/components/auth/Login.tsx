@@ -4,6 +4,7 @@ import Input from "../reusables/Input";
 import Button from "../reusables/Button";
 import { Link } from "react-router-dom";
 import Password from "../reusables/Password";
+import Logo from "../reusables/Logo";
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -11,18 +12,16 @@ export default function Login() {
     <div className="login">
       <div className="img-container">
         <div className="inner-image-container">
-          <div className="logo">
-            <img src="/logo.png" alt="auth image" />
-          </div>
+          <Logo />
           <div className="auth">
-            <img src="/auth.png" alt="auth image" />
+            <img loading="lazy" src="/auth.png" alt="auth image" />
           </div>
         </div>
       </div>
       <div className="container">
         <div className="inner-container">
           <div className="logo-mobile">
-            <img src="/logo.png" alt="auth image" />
+            <img loading="lazy" src="/logo.png" alt="auth image" />
           </div>
           <h1>Welcome!</h1>
           <p>Enter details to login.</p>

@@ -1,0 +1,73 @@
+@import "./helper/helper.scss";
+@import "./variables/variable.scss";
+
+.dashboard {
+  .active {
+    background-color: $menuColor;
+    border-left: 4px solid $brandColor;
+  }
+  @include flex(start, start, no-wrap, 100%, column, 0rem);
+  background-color: $bgcolor;
+  height: 100vh;
+
+  .container {
+    @include flex(center, center, no-wrap, 100%, row, 0rem);
+  }
+  .side {
+    @include flex(start, start, no-wrap, 283px, column, 0rem);
+    height: 120vh;
+    background-color: white;
+    overflow: scroll;
+    // box-shadow: $boxShadow;
+
+    .side-inner {
+      @include flex(start, start, no-wrap, 100%, column, 1rem);
+      margin: 0rem auto;
+
+      .nav-wrapper {
+        @include flex(start, start, no-wrap, 100%, column, 1rem);
+        h1 {
+          font-size: 14px;
+          color: #545f7d;
+          font-weight: 500;
+          text-transform: capitalize;
+          padding-left: 1.5rem;
+        }
+
+        .nav-item {
+          @include flex(start, start, no-wrap, 100%, column, 1rem);
+        }
+      }
+
+      .drop-down {
+        @include flex(center, center, no-wrap, 100%, row, 0.5rem);
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 500;
+        color: $titleColor;
+        text-transform: capitalize;
+        text-decoration: none;
+        padding-left: 1.5rem;
+
+        .text-container {
+          @include flex(center, start, no-wrap, 100%, row, 0.5rem);
+          h1 {
+            font-size: 15px;
+            font-weight: 500;
+            color: $titleColor;
+            text-transform: capitalize;
+            text-decoration: none;
+            text-align: start;
+          }
+        }
+        .icon {
+          width: 16px;
+          img {
+            width: 100%;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
