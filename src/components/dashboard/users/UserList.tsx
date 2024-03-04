@@ -71,6 +71,7 @@ export default function UserList() {
           status={el.status}
           key={i}
           username={el.username}
+          i={i}
         />
       ))}
     </div>

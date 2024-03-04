@@ -1,14 +1,22 @@
 @import "./helper/helper.scss";
 @import "./variables/variable.scss";
 
-div {
+.input {
   @include flex(start, start, no-wrap, 100%, column, 1rem);
-  input {
+  input,
+  select {
     padding: 1rem 0rem;
     width: 100%;
     outline: none;
+    border: 1px solid #ccc;
+    color: $titleColor;
   }
   input::placeholder {
     padding: 1rem;
+  }
+  label {
+    color: $greyColor;
+    font-size: 15px;
+    font-weight: 400;
   }
 }

@@ -4,28 +4,27 @@ interface Input {
   id: string;
   label?: string;
   value: string;
-  type: string;
-  placeholder: string;
   onChange: any;
+  options: Array<string>;
 }
 
-export default function Input({
+export default function Select({
   id,
   label,
   value,
-  type = "text",
+  options = [],
   onChange,
-  placeholder,
 }: Input) {
   return (
     <div className="input">
       {label && <label htmlFor={id}>{label}</label>}
-      <input
-        type={type}
-        onChange={onChange}
-        value={value}
-        placeholder={placeholder}
-      />
+      <select onChange={onChange} value={value}>
+        {options.map((el: string, i: number) => (
+          <option key={i} value={el}>
+            {el}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
