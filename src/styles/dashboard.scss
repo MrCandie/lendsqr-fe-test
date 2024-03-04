@@ -22,6 +22,158 @@
       @include flex(start, center, no-wrap, 90%, column, 2rem);
       margin: 2rem auto;
 
+      // view user
+      .go-back {
+        @include flex(center, start, no-wrap, 100%, row, 1rem);
+        cursor: pointer;
+        p {
+          color: $greyColor;
+          font-size: 16px;
+          font-weight: 500;
+          margin: 0rem;
+        }
+      }
+
+      // personal information
+      .personal-information {
+        width: 100%;
+        height: 500px;
+        box-shadow: $boxShadow;
+        background-color: white;
+      }
+
+      .user-detail {
+        @include flex(center, center, no-wrap, 100%, row, 0rem);
+
+        background-color: white;
+        box-shadow: $boxShadow;
+
+        .user-detail-inner {
+          @include flex(start, center, no-wrap, 90%, column, 2rem);
+          margin: 0rem auto;
+          margin-top: 2rem;
+
+          // user tabs
+          .user-tab {
+            @include flex(center, space-between, no-wrap, 100%, row, 1rem);
+            h1 {
+              font-size: 16px;
+              font-weight: 400;
+              color: black;
+              text-transform: capitalize;
+              padding-bottom: 0.5rem;
+              cursor: pointer;
+            }
+            .tab-active {
+              color: $brandColor;
+              border-bottom: 3px solid $brandColor;
+            }
+          }
+
+          .user-avatar {
+            @include flex(center, start, no-wrap, 100%, row, 2rem);
+
+            // user-balance
+            .user-balance {
+              @include flex(start, center, no-wrap, fit, column, 0.4rem);
+              h1 {
+                font-size: 22px;
+                color: $titleColor;
+                font-weight: 500;
+              }
+              p {
+                font-size: 14px;
+                color: $titleColor;
+                font-weight: 400;
+              }
+            }
+
+            // user-tier
+            .user-tier {
+              @include flex(start, center, no-wrap, fit, column, 0.4rem);
+
+              padding: 0rem 1rem;
+              border-left: 1px solid $greyColor;
+              border-right: 1px solid $greyColor;
+
+              h1 {
+                font-size: 14px;
+                color: $greyColor;
+                font-weight: 500;
+              }
+              .star {
+                @include flex(center, center, no-wrap, "", row, 0.3rem);
+                color: gold;
+              }
+            }
+
+            //username
+            .user-name {
+              @include flex(center, start, no-wrap, "", row, 1rem);
+
+              .avatar {
+                width: 100px;
+
+                img {
+                  width: 100%;
+                  height: 100px;
+                  border-radius: 100%;
+                }
+              }
+              .user-id {
+                @include flex(start, center, no-wrap, "", column, 0.4rem);
+                h1 {
+                  font-size: 22px;
+                  color: $titleColor;
+                  font-weight: 500;
+                }
+                p {
+                  font-size: 14px;
+                  color: $greyColor;
+                  font-weight: 400;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .view-header {
+        @include flex(center, space-between, no-wrap, 100%, row, 0rem);
+
+        h1 {
+          color: $titleColor;
+          font-size: 20px;
+          font-weight: 500;
+        }
+
+        .view-btn-wrapper {
+          @include flex(center, "", no-wrap, "", row, 1rem);
+          button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            background-color: transparent;
+            font-weight: 600;
+            cursor: pointer;
+          }
+          button:hover {
+            opacity: 80%;
+            transition: all;
+            box-shadow: $boxShadow;
+          }
+          .blacklist-btn {
+            border: 1px solid #e4033b;
+            color: #e4033b;
+          }
+          .activate-btn {
+            border: 1px solid $brandColor;
+            color: $brandColor;
+          }
+        }
+      }
+
       // filter
       .filter-wrapper {
         width: 100%;
