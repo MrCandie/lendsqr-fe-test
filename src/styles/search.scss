@@ -33,3 +33,9 @@
     transition: all;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .search {
+    display: none;
+  }
+}

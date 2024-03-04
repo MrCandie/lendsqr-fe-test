@@ -7,6 +7,15 @@
   padding: 1rem 0rem;
   box-shadow: $boxShadow;
 
+  .menu-wrapper {
+    @include flex(center, start, no-wrap, "", row, 1rem);
+    margin-left: 0.4rem;
+
+    span {
+      display: none;
+    }
+  }
+
   .logo {
     width: 28%;
     margin-left: 1rem;
@@ -39,6 +48,25 @@
       font-weight: 500;
       color: $textColor;
       text-transform: capitalize;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .header {
+    .menu-wrapper {
+      span {
+        display: block;
+        cursor: pointer;
+      }
+    }
+    .user {
+      .avatar {
+        display: none;
+      }
+      a {
+        display: none;
+      }
     }
   }
 }
