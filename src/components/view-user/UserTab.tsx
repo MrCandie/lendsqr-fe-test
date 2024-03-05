@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const data = [
   "general details",
   "documents",
@@ -9,8 +7,13 @@ const data = [
   "app and systems",
 ];
 
-export default function UserTab() {
-  const [index, setIndex] = useState(0);
+export default function UserTab({
+  index,
+  setIndex,
+}: {
+  index: number;
+  setIndex: (e: number) => void;
+}) {
   return (
     <div className="user-tab">
       {data.map((el: string, i: number) => (

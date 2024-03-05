@@ -5,9 +5,11 @@ import { MdStar } from "react-icons/md";
 import { MdStarBorder } from "react-icons/md";
 import UserTab from "./UserTab";
 import PersonalInformation from "./PersonalInformation";
+import { useState } from "react";
 
 export default function ViewUser() {
   const navigate = useNavigate();
+  const [index, setIndex] = useState(0);
   return (
     <Wrapper>
       <div onClick={() => navigate("/")} className="go-back">
@@ -54,10 +56,10 @@ export default function ViewUser() {
             </div>
           </div>
 
-          <UserTab />
+          <UserTab index={index} setIndex={setIndex} />
         </div>
       </div>
-      <PersonalInformation />
+      {index === 0 && <PersonalInformation />}
     </Wrapper>
   );
 }
