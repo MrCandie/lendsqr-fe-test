@@ -2,8 +2,8 @@ import { useState } from "react";
 import Input from "../reusables/Input";
 import Select from "../reusables/Select";
 import Button from "../reusables/Button";
-import { data } from "../../utils/data";
 import { IData } from "../../interfaces/dataInterface";
+import { getStoredItem } from "../../utils/lib";
 
 export default function Filter({
   setShow,
@@ -23,7 +23,9 @@ export default function Filter({
     organization: "",
   });
 
-  const list = data.map((el) => el.organization);
+  const data = getStoredItem("data") || "";
+
+  const list = data.map((el: IData) => el.organization);
 
   function filterHandler() {
     if (type === "status") {
