@@ -50,12 +50,12 @@
             font-weight: 600;
           }
           .personal-information-wrapper {
-            @include flex(center, start, wrap, 100%, row, 0rem);
+            @include flex(center, start, wrap, 100%, row, 2rem);
             border-bottom: 1px solid #ccc;
             padding-bottom: 0.5rem;
 
             .title-wrapper {
-              @include flex(start, start, no-wrap, 20%, column, 1rem);
+              @include flex(start, start, no-wrap, "", column, 1rem);
               margin: 1rem 0;
 
               p {
@@ -121,6 +121,7 @@
                 font-size: 14px;
                 color: $titleColor;
                 font-weight: 400;
+                text-transform: capitalize;
               }
             }
 
@@ -274,6 +275,18 @@
             border: none;
             background-color: transparent;
             cursor: pointer;
+          }
+          .paginate-active {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            background-color: $brandColor;
+            border-radius: 6px;
+            padding: 0.2rem 0.5rem;
+          }
+          button:hover {
+            opacity: 80%;
+            box-shadow: $boxShadow;
           }
           .btn-cover {
             background-color: #e5e8ee;

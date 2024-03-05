@@ -2,44 +2,33 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import MenuView from "./MenuView";
 import { useState } from "react";
+import { IData } from "../../../interfaces/dataInterface";
 
-export default function UserItem({
-  organization,
-  username,
-  email,
-  phoneNumber,
-  date,
-  status,
-  i,
-}: {
-  organization: "lendsqr";
-  username: string;
-  email: string;
-  phoneNumber: string;
-  date: string;
-  status: string;
-  i: number;
-}) {
+export default function UserItem({ user, i }: { user: IData; i: number }) {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [index, setIndex] = useState(0);
+  const [id, setId] = useState("");
   return (
     <>
       <div className="user-item">
-        <h1 onClick={() => navigate(`/user/gfhdfs`)} className="organization">
-          {organization}
+        <h1
+          onClick={() => navigate(`/user/${user._id}`)}
+          className="organization"
+        >
+          {user?.organization}
         </h1>
-        <h1 onClick={() => navigate(`/user/gfhdfs`)} className="username">
-          {username}
+        <h1 onClick={() => navigate(`/user/${user._id}`)} className="username">
+          {user?.username}
         </h1>
-        <h1 onClick={() => navigate(`/user/gfhdfs`)} className="email">
-          {email}
+        <h1 onClick={() => navigate(`/user/${user._id}`)} className="email">
+          {user?.email}
         </h1>
-        <h1 onClick={() => navigate(`/user/gfhdfs`)} className="phone">
-          {phoneNumber}
+        <h1 onClick={() => navigate(`/user/${user._id}`)} className="phone">
+          {user?.phone}
         </h1>
-        <h1 onClick={() => navigate(`/user/gfhdfs`)} className="date">
-          {date}
+        <h1 onClick={() => navigate(`/user/${user._id}`)} className="date">
+          {new Date(user?.date)?.toLocaleString()}
         </h1>
         <div className="status">
           <h1
@@ -50,33 +39,34 @@ export default function UserItem({
               padding: "0.3rem 1rem",
               borderRadius: "16px",
               color:
-                status === "inactive"
+                user?.status === "inactive"
                   ? "rgba(84, 95, 125, 1)"
-                  : status === "active"
+                  : user?.status === "active"
                   ? "rgba(57, 205, 98, 1)"
-                  : status === "blacklisted"
+                  : user?.status === "blacklisted"
                   ? "rgba(228, 3, 59, 1)"
                   : "rgba(233, 178, 0, 1)",
               backgroundColor:
-                status === "inactive"
+                user?.status === "inactive"
                   ? "rgba(84, 95, 125, 0.15)"
-                  : status === "active"
+                  : user?.status === "active"
                   ? "rgba(57, 205, 98, 0.15)"
-                  : status === "blacklisted"
+                  : user?.status === "blacklisted"
                   ? "rgba(228, 3, 59, 0.15)"
                   : "rgba(233, 178, 0, 0.15)",
             }}
           >
-            {status}
+            {user?.status}
           </h1>
           <HiOutlineDotsVertical
             onClick={() => {
               setIndex(i);
+              setId(user?._id);
               setShow((prev: boolean) => !prev);
             }}
           />
         </div>
-        {show && index === i && <MenuView />}
+        {show && index === i && <MenuView id={id} />}
       </div>
     </>
   );

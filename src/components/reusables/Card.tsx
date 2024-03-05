@@ -4,7 +4,7 @@ export default function Card({
   text,
   width,
 }: {
-  title: string;
+  title: string | number;
   text: string;
   src: string;
   width?: string;

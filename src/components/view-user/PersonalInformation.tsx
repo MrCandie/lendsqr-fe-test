@@ -1,52 +1,69 @@
+// import { IData } from "../../interfaces/dataInterface";
 import ReusableItem from "./ReusableItem";
 
-export default function PersonalInformation() {
+export default function PersonalInformation({ user }: any) {
+  const balance = String(user?.loanRepayment)?.split("").slice(1).join("");
   return (
     <div className="personal-information">
       <div className="personal-information-inner">
         <h1>Personal Information</h1>
         {/* personal information */}
         <div className="personal-information-wrapper">
-          <ReusableItem title="full name" text="Grace Effiom" />
-          <ReusableItem title="phone number" text="07060780922" />
-          <ReusableItem title="email" text="grace@gmail.com" />
-          <ReusableItem title="bvn" text="07060780922" />
-          <ReusableItem title="gender" text="female" />
-          <ReusableItem title="marital status" text="single" />
-          <ReusableItem title="children" text="none" />
-          <ReusableItem title="Type of residence" text="Parent’s Apartment" />
+          <ReusableItem title="full name" text={user?.name} />
+          <ReusableItem title="phone number" text={user?.phone} />
+          <ReusableItem title="email" text={user?.email} />
+          <ReusableItem title="bvn" text={user?.bvn} />
+          <ReusableItem title="gender" text={user?.gender} />
+          <ReusableItem title="marital status" text={user?.maritalStatus} />
+          <ReusableItem title="children" text={user?.children} />
+          <ReusableItem
+            title="Type of residence"
+            text={user?.typeOfResidence}
+          />
         </div>
 
         <h1>Education and Employment</h1>
         {/* education & employment */}
         <div className="personal-information-wrapper">
-          <ReusableItem title="level of education" text="B.Sc" />
-          <ReusableItem title="employment status" text="employed" />
-          <ReusableItem title="sector of employment" text="fintech" />
-          <ReusableItem title="Duration of employment" text="2 years" />
-          <ReusableItem title="office email" text="grace@lendsqr.com" />
           <ReusableItem
-            title="Monthly income"
-            text="₦200,000.00- ₦400,000.00"
+            title="level of education"
+            text={user?.levelOfEducation}
           />
-          <ReusableItem title="loan repayment" text="40,000" />
+          <ReusableItem
+            title="employment status"
+            text={user?.employmentStatus}
+          />
+          <ReusableItem
+            title="sector of employment"
+            text={user?.sectorOfEmployment}
+          />
+          <ReusableItem
+            title="Duration of employment"
+            text={user?.durationOfEmployment}
+          />
+          <ReusableItem title="official email" text={user?.officialEmail} />
+          <ReusableItem title="Monthly income" text={user?.monthlyIncome} />
+          <ReusableItem title="loan repayment" text={`₦${balance}`} />
         </div>
 
         <h1>Socials</h1>
         {/* socials */}
         <div className="personal-information-wrapper">
-          <ReusableItem title="twitter" text="@grace_effiom" />
-          <ReusableItem title="facebook" text="Grace Effiom" />
-          <ReusableItem title="instagram" text="@grace_effiom" />
+          <ReusableItem title="twitter" text={`@${user?.twitter}`} />
+          <ReusableItem title="facebook" text={user?.facebook} />
+          <ReusableItem title="instagram" text={`@${user?.instagram}`} />
         </div>
 
         <h1>Guarantor</h1>
         {/* Guarantor */}
         <div className="personal-information-wrapper">
-          <ReusableItem title="full name" text="Debby Ogana" />
-          <ReusableItem title="phone number" text="07060780922" />
-          <ReusableItem title="email" text="debby@gmail.com" />
-          <ReusableItem title="relationship" text="sister" />
+          <ReusableItem title="full name" text={user?.guarantors?.name} />
+          <ReusableItem title="phone number" text={user?.guarantors?.phone} />
+          <ReusableItem title="email" text={user?.guarantors?.email} />
+          <ReusableItem
+            title="relationship"
+            text={user?.guarantors?.relationship}
+          />
         </div>
       </div>
     </div>

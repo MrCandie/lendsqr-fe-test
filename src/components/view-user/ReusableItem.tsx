@@ -3,7 +3,7 @@ export default function ReusableItem({
   text,
 }: {
   title: string;
-  text: string;
+  text: string | number;
 }) {
   return (
     <div className="title-wrapper">

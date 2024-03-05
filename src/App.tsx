@@ -17,7 +17,7 @@ const router = createBrowserRouter(
     <Route>
       <Route
         element={
-          <Suspense fallback={<ReusableSpinner height="100vh" />}>
+          <Suspense fallback={<ReusableSpinner />}>
             <Login />
           </Suspense>
         }
@@ -25,7 +25,7 @@ const router = createBrowserRouter(
       />
       <Route
         element={
-          <Suspense fallback={<ReusableSpinner height="100vh" />}>
+          <Suspense fallback={<ReusableSpinner />}>
             <Dashboard />
           </Suspense>
         }
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
       />
       <Route
         element={
-          <Suspense fallback={<ReusableSpinner height="100vh" />}>
+          <Suspense fallback={<ReusableSpinner />}>
             <ViewUser />
           </Suspense>
         }
