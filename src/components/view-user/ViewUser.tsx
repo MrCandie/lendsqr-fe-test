@@ -6,9 +6,9 @@ import { MdStarBorder } from "react-icons/md";
 import UserTab from "./UserTab";
 import PersonalInformation from "./PersonalInformation";
 import { useEffect, useState } from "react";
-import { data } from "../../utils/data";
 import { IData } from "../../interfaces/dataInterface";
 import ReusableSpinner from "../reusables/ReusableSpinner";
+import { getStoredItem, storeItem } from "../../utils/lib";
 
 export default function ViewUser() {
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ export default function ViewUser() {
   const [user, setUser] = useState<IData>();
   const [loading, setLoading] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
+  const data = getStoredItem("data");
 
   useEffect(() => {
     setLoading(true);
@@ -26,6 +27,36 @@ export default function ViewUser() {
   }, [params.id]);
 
   const balance = String(user?.balance)?.split("").slice(1).join("");
+
+  function blacklistUser() {
+    if (user?.status !== "blacklisted") {
+      const newData = data.map((el: IData) => {
+        return {
+          ...el,
+          status: el._id === params.id ? "blacklisted" : el.status,
+        };
+      });
+      const newUser = newData.find((el: IData) => el._id === params.id);
+      setUser(newUser);
+      storeItem("data", newData, 86400000);
+    }
+  }
+
+  function activateUser() {
+    if (user?.status !== "active") {
+      const newData = data.map((el: IData) => {
+        return {
+          ...el,
+          status: el._id === params.id ? "active" : el.status,
+        };
+      });
+      const newUser = newData.find((el: IData) => el._id === params.id);
+      setUser(newUser);
+      storeItem("data", newData, 86400000);
+    }
+  }
+
+  console.log(user?.status);
 
   return (
     <Wrapper search={search} setSearch={setSearch}>
@@ -41,8 +72,16 @@ export default function ViewUser() {
           <div className="view-header">
             <h1>User Details</h1>
             <div className="view-btn-wrapper">
-              <button className="blacklist-btn">blacklist user</button>
-              <button className="activate-btn">activate user</button>
+              {user?.status !== "blacklisted" && (
+                <button onClick={blacklistUser} className="blacklist-btn">
+                  blacklist user
+                </button>
+              )}
+              {user?.status !== "active" && (
+                <button onClick={activateUser} className="activate-btn">
+                  activate user
+                </button>
+              )}
             </div>
           </div>
 

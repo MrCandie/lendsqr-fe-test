@@ -11,27 +11,13 @@ import PaginationComponent from "../pagination/Pagination";
 import { data } from "../../utils/data";
 import { useEffect, useState } from "react";
 import { IData } from "../../interfaces/dataInterface";
+import { getStoredItem, storeItem } from "../../utils/lib";
 
 interface IList {
   src: string;
   title: number | string;
   text: string;
 }
-
-const list = [
-  { src: "/user-icon.png", title: data.length, text: "users" },
-  {
-    src: "/active-user.png",
-    title: data?.filter((el) => el.status === "active")?.length,
-    text: "active users",
-  },
-  {
-    src: "/user-loan.png",
-    title: data?.filter((el) => el.loanRepayment)?.length,
-    text: "users with loan",
-  },
-  { src: "/user-savings.png", title: 0, text: "users with savings" },
-];
 
 export default function Dashboard() {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -42,19 +28,42 @@ export default function Dashboard() {
   const [all, setAll] = useState<Array<IData>>([]);
   const [search, setSearch] = useState<string>("");
 
-  useEffect(() => {
-    const all: Array<IData> = data?.slice(firstIndex, lastIndex);
-    setAll(all);
-  }, [perPage, firstIndex, lastIndex]);
+  const list = getStoredItem("data") || [];
+
+  const menuList = [
+    { src: "/user-icon.png", title: list.length, text: "users" },
+    {
+      src: "/active-user.png",
+      title: list?.filter((el: IData) => el.status === "active")?.length,
+      text: "active users",
+    },
+    {
+      src: "/user-loan.png",
+      title: list?.filter((el: IData) => el.loanRepayment)?.length,
+      text: "users with loan",
+    },
+    { src: "/user-savings.png", title: 0, text: "users with savings" },
+  ];
 
   useEffect(() => {
-    setTotal(data?.length);
-  }, []);
+    if (list.length > 0) {
+      const all: Array<IData> = list?.slice(firstIndex, lastIndex);
+      setAll(all);
+      return;
+    }
+    storeItem("data", data, 86400000);
+    const all: Array<IData> = data?.slice(firstIndex, lastIndex);
+    setAll(all);
+  }, [perPage, firstIndex, lastIndex, list]);
+
+  useEffect(() => {
+    setTotal(list?.length);
+  }, [list]);
 
   useEffect(() => {
     const val = search?.trim()?.toLowerCase();
-    const filtered = data.filter(
-      (el) =>
+    const filtered = list.filter(
+      (el: IData) =>
         el.name.toLowerCase()?.includes(val) ||
         el.email.toLowerCase()?.includes(val) ||
         el.organization.toLowerCase()?.includes(val) ||
@@ -68,7 +77,7 @@ export default function Dashboard() {
     <Wrapper setSearch={setSearch} search={search}>
       <h1>Users</h1>
       <div className="card-wrapper">
-        {list.map((el: IList, i: number) => (
+        {menuList.map((el: IList, i: number) => (
           <Card title={el.title} text={el.text} src={el.src} key={i} />
         ))}
       </div>
@@ -78,7 +87,7 @@ export default function Dashboard() {
         modules={[Pagination]}
         className="card-wrapper-mobile"
       >
-        {list.map((el: IList, i: number) => (
+        {menuList.map((el: IList, i: number) => (
           <SwiperSlide key={i}>
             <Card width="100%" title={el.title} text={el.text} src={el.src} />
           </SwiperSlide>

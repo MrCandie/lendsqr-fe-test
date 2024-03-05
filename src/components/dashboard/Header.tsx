@@ -28,7 +28,9 @@ export default function Header({
       <div className="info">
         <Search
           value={search}
-          onChange={(e: any) => setSearch(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setSearch(e.target.value)
+          }
         />
         <div className="user">
           <Link to="">Docs</Link>

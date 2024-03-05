@@ -25,7 +25,7 @@ export default function UserItem({ user, i }: { user: IData; i: number }) {
   const [index, setIndex] = useState(0);
   const [id, setId] = useState("");
 
-  const date = Date();
+  const date = new Date(user?.date);
 
   const formatedDate = new Date(date);
 

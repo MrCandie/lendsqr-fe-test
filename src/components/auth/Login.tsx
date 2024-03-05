@@ -29,14 +29,14 @@ export default function Login() {
             type="email"
             placeholder="Email"
             value={formData.email}
-            onChange={(e: any) =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setFormData({ ...formData, email: e.target.value })
             }
             id="email"
           />
           <Password
             value={formData.password}
-            onChange={(e: any) =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setFormData({ ...formData, password: e.target.value })
             }
           />

@@ -19,10 +19,7 @@ export default function Menu({
         <img loading="lazy" src={src} alt="user" />
       </div>
 
-      <div
-        className="text-container"
-        // style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
-      >
+      <div className="text-container">
         <h1>{title}</h1>
 
         {show && (

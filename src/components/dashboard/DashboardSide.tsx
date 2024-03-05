@@ -1,6 +1,12 @@
 import "../../styles/dashboard.scss";
 import Menu from "./Menu";
 
+interface IOptions {
+  title: string;
+  src: string;
+  path: string;
+}
+
 const data = [
   {
     title: "customers",
@@ -72,20 +78,22 @@ export default function DashboardSide() {
           show={false}
         />
         <div className="nav-wrapper">
-          {data?.map((el: any, i: number) => (
-            <div key={i} className="nav-item">
-              <h1>{el.title}</h1>
-              {el.options.map((item: any, i: number) => (
-                <Menu
-                  path={item.path}
-                  key={i}
-                  title={item.title}
-                  src={item.src}
-                  show={false}
-                />
-              ))}
-            </div>
-          ))}
+          {data?.map(
+            (el: { title: string; options: Array<IOptions> }, i: number) => (
+              <div key={i} className="nav-item">
+                <h1>{el.title}</h1>
+                {el.options.map((item: IOptions, i: number) => (
+                  <Menu
+                    path={item.path}
+                    key={i}
+                    title={item.title}
+                    src={item.src}
+                    show={false}
+                  />
+                ))}
+              </div>
+            )
+          )}
         </div>
       </div>
     </div>
