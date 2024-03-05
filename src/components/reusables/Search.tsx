@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 
 interface Input {
   value: string;
-  onChange: any;
+  onChange: (e: any) => void;
 }
 
 export default function Search({ value, onChange }: Input) {
@@ -12,7 +12,7 @@ export default function Search({ value, onChange }: Input) {
   return (
     <div className="search">
       <input
-        type={type}
+        type="text"
         onChange={onChange}
         value={value}
         placeholder="Search for anything"

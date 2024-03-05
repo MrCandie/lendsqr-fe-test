@@ -5,7 +5,7 @@ const data = [
   {
     title: "customers",
     options: [
-      { title: "user", src: "/user.png", path: "/user" },
+      { title: "user", src: "/user.png", path: "/" },
       { title: "guarantors", src: "/guarantor.png", path: "/guarantor" },
       { title: "loans", src: "/loan.png", path: "/loans" },
       {
@@ -65,7 +65,12 @@ export default function DashboardSide() {
           src="/case.png"
           show={true}
         />
-        <Menu path="/" title="Dashboard" src="/dashboard.png" show={false} />
+        <Menu
+          path="/dashboard"
+          title="Dashboard"
+          src="/dashboard.png"
+          show={false}
+        />
         <div className="nav-wrapper">
           {data?.map((el: any, i: number) => (
             <div key={i} className="nav-item">

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../../styles/header.scss";
 import Logo from "../reusables/Logo";
 import Search from "../reusables/Search";
@@ -7,9 +6,15 @@ import { BsBell } from "react-icons/bs";
 import DropDown from "../reusables/DropDown";
 import { AiOutlineMenu } from "react-icons/ai";
 
-export default function Header() {
+export default function Header({
+  search,
+  setSearch,
+}: {
+  search: string;
+  setSearch: (e: string) => void;
+}) {
   const navigate = useNavigate();
-  const [value, setValue] = useState("");
+
   return (
     <div className="header">
       <div className="menu-wrapper">
@@ -21,7 +26,10 @@ export default function Header() {
         </div>
       </div>
       <div className="info">
-        <Search value={value} onChange={(e: any) => setValue(e.target.value)} />
+        <Search
+          value={search}
+          onChange={(e: any) => setSearch(e.target.value)}
+        />
         <div className="user">
           <Link to="">Docs</Link>
           <span>

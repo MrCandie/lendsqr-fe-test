@@ -12,10 +12,11 @@ import ReusableSpinner from "../reusables/ReusableSpinner";
 
 export default function ViewUser() {
   const navigate = useNavigate();
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState<number>(0);
   const params = useParams();
   const [user, setUser] = useState<IData>();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
     setLoading(true);
@@ -27,7 +28,7 @@ export default function ViewUser() {
   const balance = String(user?.balance)?.split("").slice(1).join("");
 
   return (
-    <Wrapper>
+    <Wrapper search={search} setSearch={setSearch}>
       {loading ? (
         <ReusableSpinner title="Fetching User" />
       ) : (

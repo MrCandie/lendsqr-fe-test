@@ -525,6 +525,12 @@
           width: 95%;
           display: flex;
 
+          .go-back {
+            p {
+              font-size: 12px;
+            }
+          }
+
           .view-header {
             .view-btn-wrapper {
               flex-direction: column;
@@ -539,7 +545,8 @@
           .personal-information {
             .personal-information-inner {
               .title-wrapper {
-                width: 50%;
+                // width: 50%;
+                margin: 0rem;
                 h1 {
                   font-size: 12px;
                 }
@@ -573,6 +580,27 @@
                 }
               }
               .user-avatar {
+                .user-balance {
+                  h1 {
+                    font-size: 18px;
+                  }
+                }
+                .user-name {
+                  .user-id {
+                    h1 {
+                      font-size: 16px;
+                    }
+                    p {
+                      font-size: 12px;
+                    }
+                  }
+                  .avatar {
+                    width: 70px;
+                    img {
+                      height: 70px;
+                    }
+                  }
+                }
                 flex-direction: column;
                 align-items: start;
                 justify-content: start;

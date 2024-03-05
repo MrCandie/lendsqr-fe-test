@@ -2,7 +2,7 @@ import "../../styles/button.scss";
 
 interface Button {
   title: string;
-  onClick: any;
+  onClick: () => void;
   width?: string;
 }
 

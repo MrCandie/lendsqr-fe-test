@@ -40,6 +40,7 @@ export default function Dashboard() {
   const lastIndex: number = currentPage * perPage;
   const firstIndex: number = lastIndex - perPage;
   const [all, setAll] = useState<Array<IData>>([]);
+  const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
     const all: Array<IData> = data?.slice(firstIndex, lastIndex);
@@ -50,8 +51,21 @@ export default function Dashboard() {
     setTotal(data?.length);
   }, []);
 
+  useEffect(() => {
+    const val = search?.trim()?.toLowerCase();
+    const filtered = data.filter(
+      (el) =>
+        el.name.toLowerCase()?.includes(val) ||
+        el.email.toLowerCase()?.includes(val) ||
+        el.organization.toLowerCase()?.includes(val) ||
+        el.username.toLowerCase()?.includes(val)
+    );
+    const all: Array<IData> = filtered?.slice(firstIndex, lastIndex);
+    setAll(all);
+  }, [search]);
+
   return (
-    <Wrapper>
+    <Wrapper setSearch={setSearch} search={search}>
       <h1>Users</h1>
       <div className="card-wrapper">
         {list.map((el: IList, i: number) => (
@@ -70,7 +84,7 @@ export default function Dashboard() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <User list={all} />
+      <User setList={setAll} list={all} />
       <PaginationComponent
         total={total}
         perPage={perPage}

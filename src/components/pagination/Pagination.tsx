@@ -15,7 +15,7 @@ export default function PaginationComponent({
   setPerPage: (e: number) => void;
 }) {
   const totalPage = total / +perPage;
-  console.log(totalPage, currentPage);
+
   return (
     <div className="pagination">
       <div className="showing">

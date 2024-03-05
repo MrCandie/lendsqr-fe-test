@@ -4,11 +4,36 @@ import MenuView from "./MenuView";
 import { useState } from "react";
 import { IData } from "../../../interfaces/dataInterface";
 
+const months = [
+  "Jan",
+  "Feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sept",
+  "oct",
+  "nov",
+  "dec",
+];
+
 export default function UserItem({ user, i }: { user: IData; i: number }) {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [index, setIndex] = useState(0);
   const [id, setId] = useState("");
+
+  const date = Date();
+
+  const formatedDate = new Date(date);
+
+  const month = formatedDate.getMonth();
+  const year = formatedDate.getFullYear();
+  const day = formatedDate.getDate();
+  const time = formatedDate.toLocaleTimeString();
+
   return (
     <>
       <div className="user-item">
@@ -22,13 +47,24 @@ export default function UserItem({ user, i }: { user: IData; i: number }) {
           {user?.username}
         </h1>
         <h1 onClick={() => navigate(`/user/${user._id}`)} className="email">
-          {user?.email}
+          {user?.email
+            ? user?.email
+                ?.slice(0, 20)
+                .padEnd(
+                  user?.email?.length > 20 ? 22 : user?.email?.length,
+                  "."
+                )
+            : ""}
         </h1>
         <h1 onClick={() => navigate(`/user/${user._id}`)} className="phone">
           {user?.phone}
         </h1>
-        <h1 onClick={() => navigate(`/user/${user._id}`)} className="date">
-          {new Date(user?.date)?.toLocaleString()}
+        <h1
+          style={{ textTransform: "capitalize" }}
+          onClick={() => navigate(`/user/${user._id}`)}
+          className="date"
+        >
+          {`${months[month]} ${day}, ${year} ${time}`}
         </h1>
         <div className="status">
           <h1
