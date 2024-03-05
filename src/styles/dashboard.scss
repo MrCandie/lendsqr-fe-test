@@ -87,6 +87,9 @@
           margin-top: 2rem;
 
           // user tabs
+          .user-tab-mobile {
+            display: none;
+          }
           .user-tab {
             @include flex(center, space-between, no-wrap, 100%, row, 1rem);
             h1 {
@@ -532,8 +535,26 @@
           }
           .user-detail {
             .user-detail-inner {
+              .user-tab-mobile {
+                @include flex(center, space-between, no-wrap, 100%, row, 1rem);
+                h1 {
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: black;
+                  text-transform: capitalize;
+                  padding-bottom: 0.5rem;
+                  cursor: pointer;
+                  width: 100%;
+                  text-align: center;
+                }
+                .tab-active {
+                  color: $brandColor;
+                  border-bottom: 3px solid $brandColor;
+                }
+              }
               .user-tab {
                 flex-wrap: wrap;
+                display: none;
                 hi {
                   font-size: 10px;
                 }
