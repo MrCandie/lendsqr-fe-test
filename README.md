@@ -23,11 +23,23 @@ Just 5 packages was used in building this admin console
 - Swiperjs: To enforce responsiveness of stats cards on mobile screens
 - Typescript
 - React icons: Icons used in this app;
+- Vitest Vite testing library
+- @testing-library/jest-dom
+- @testing-library/user-event
+- jsdom
 
 ## Starting this app
 
 ```js
 npm start
+```
+
+To start this app.
+
+## Testing this app
+
+```js
+npm run test
 ```
 
 To start this app.
@@ -42,4 +54,4 @@ https://github.com/MrCandie
 
 ## Portfolio URL
 
-https:mrcandie.com
+https://mrcandie.com
