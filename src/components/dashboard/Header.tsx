@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsBell } from "react-icons/bs";
 import DropDown from "../reusables/DropDown";
 import { AiOutlineMenu } from "react-icons/ai";
+import MobileMenu from "./MobileMenu";
+import { useState } from "react";
 
 export default function Header({
   search,
@@ -16,11 +18,12 @@ export default function Header({
   onSearch: () => void;
 }) {
   const navigate = useNavigate();
+  const [show, setShow] = useState<boolean>(false);
 
   return (
     <div className="header">
       <div className="menu-wrapper">
-        <span>
+        <span onClick={() => setShow(true)}>
           <AiOutlineMenu />
         </span>
         <div className="logo">
@@ -46,6 +49,7 @@ export default function Header({
           <DropDown title="mr candie" />
         </div>
       </div>
+      {show && <MobileMenu setShow={setShow} />}
     </div>
   );
 }
