@@ -76,11 +76,6 @@ export default function UserItem({
         <div className="status">
           <h1
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "0.3rem 1rem",
-              borderRadius: "16px",
               color:
                 user?.status === "inactive"
                   ? "rgba(84, 95, 125, 1)"

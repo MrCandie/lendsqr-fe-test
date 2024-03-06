@@ -18,7 +18,7 @@ export default function Select({
   return (
     <div className="input">
       {label && <label htmlFor={id}>{label}</label>}
-      <select onChange={onChange} value={value}>
+      <select title="select" onChange={onChange} value={value}>
         {options.map((el: string, i: number) => (
           <option key={i} value={el}>
             {el}

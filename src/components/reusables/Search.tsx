@@ -16,7 +16,7 @@ export default function Search({ value, onChange, searchHandler }: Input) {
         value={value}
         placeholder="Search for anything"
       />
-      <button onClick={searchHandler}>
+      <button title="search" onClick={searchHandler}>
         <BsSearch />
       </button>
     </div>
