@@ -316,11 +316,12 @@
           .user-item:hover {
             // opacity: 80%;
             transition: all;
+            box-shadow: $boxShadow;
           }
 
           .user-item {
             @include flex(center, start, no-wrap, 100%, row, 0rem);
-            padding: 1rem 0rem;
+            // padding: 1rem 0rem;
             border-bottom: 1px solid #ccc;
             cursor: pointer;
             position: relative;
@@ -341,11 +342,13 @@
               }
 
               .menu-item {
+                padding: 0.3rem 0rem;
                 @include flex(start, start, no-wrap, 100%, row, 1rem);
                 h1 {
                   color: $greyColor;
                   font-size: 15px;
                   font-weight: 500;
+                  padding: 0rem;
                 }
               }
             }
@@ -355,6 +358,7 @@
               font-weight: 400;
               color: $greyColor;
               text-align: start;
+              padding: 1.2rem 0rem;
             }
             .status {
               @include flex(center, space-between, no-wrap, "", row, 0rem);

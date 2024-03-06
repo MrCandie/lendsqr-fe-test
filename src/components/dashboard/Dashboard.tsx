@@ -31,17 +31,18 @@ export default function Dashboard() {
   const list = useMemo(() => {
     return getStoredItem("data") || [];
   }, []);
+  const [statData, setStatData] = useState<Array<IData>>(list);
 
   const menuList = [
-    { src: "/user-icon.png", title: all.length, text: "users" },
+    { src: "/user-icon.png", title: statData.length, text: "users" },
     {
       src: "/active-user.png",
-      title: all?.filter((el: IData) => el.status === "active")?.length,
+      title: statData?.filter((el: IData) => el.status === "active")?.length,
       text: "active users",
     },
     {
       src: "/user-loan.png",
-      title: all?.filter((el: IData) => el.loanRepayment)?.length,
+      title: statData?.filter((el: IData) => el.loanRepayment)?.length,
       text: "users with loan",
     },
     { src: "/user-savings.png", title: 0, text: "users with savings" },
@@ -96,7 +97,7 @@ export default function Dashboard() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <User setList={setAll} list={all} />
+      <User setStatData={setStatData} setList={setAll} list={all} />
       <PaginationComponent
         total={total}
         perPage={perPage}

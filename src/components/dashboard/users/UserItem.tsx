@@ -23,10 +23,12 @@ export default function UserItem({
   user,
   i,
   setList,
+  setStatData,
 }: {
   user: IData;
   i: number;
   setList: (e: Array<IData>) => void;
+  setStatData: (e: Array<IData>) => void;
 }) {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -116,6 +118,7 @@ export default function UserItem({
             setList={setList}
             status={user?.status}
             id={id}
+            setStatData={setStatData}
           />
         )}
       </div>

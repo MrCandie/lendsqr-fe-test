@@ -7,10 +7,12 @@ export default function MenuView({
   status,
   setList,
   setShow,
+  setStatData,
 }: {
   id: string;
   status: string;
   setList: (e: Array<IData>) => void;
+  setStatData: (e: Array<IData>) => void;
   setShow: (e: boolean) => void;
 }) {
   const navigate = useNavigate();
@@ -54,6 +56,7 @@ export default function MenuView({
       });
       storeItem("data", newData, 86400000);
       setList(newData?.slice(0, 50));
+      setStatData(newData);
       setShow(false);
     }
   }
@@ -68,6 +71,7 @@ export default function MenuView({
       });
       storeItem("data", newData, 86400000);
       setList(newData?.slice(0, 50));
+      setStatData(newData);
       setShow(false);
     }
   }
