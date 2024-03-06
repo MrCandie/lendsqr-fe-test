@@ -13,7 +13,7 @@ export default function User({
     <div className="user">
       <div className="user-inner">
         <UserTitle setList={setList} />
-        <UserList list={list} />
+        <UserList setList={setList} list={list} />
       </div>
     </div>
   );

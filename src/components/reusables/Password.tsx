@@ -3,7 +3,7 @@ import "../../styles/password.scss";
 
 interface Input {
   value: string;
-  onChange: any;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Password({ value, onChange }: Input) {

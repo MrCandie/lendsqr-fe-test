@@ -6,14 +6,16 @@ export default function Wrapper({
   children,
   search,
   setSearch,
+  onSearch,
 }: Readonly<{
   children: React.ReactNode;
   search: string;
   setSearch: (e: string) => void;
+  onSearch: () => void;
 }>) {
   return (
     <div className="dashboard">
-      <Header search={search} setSearch={setSearch} />
+      <Header onSearch={onSearch} search={search} setSearch={setSearch} />
       <div className="container">
         <DashboardSide />
         <div className="center">

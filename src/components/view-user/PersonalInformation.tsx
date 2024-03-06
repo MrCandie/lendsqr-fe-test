@@ -1,7 +1,7 @@
-// import { IData } from "../../interfaces/dataInterface";
+import { IData } from "../../interfaces/dataInterface";
 import ReusableItem from "./ReusableItem";
 
-export default function PersonalInformation({ user }: any) {
+export default function PersonalInformation({ user }: { user: IData }) {
   const balance = String(user?.loanRepayment)?.split("").slice(1).join("");
   return (
     <div className="personal-information">

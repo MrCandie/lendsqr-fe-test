@@ -2,12 +2,17 @@ import { useState } from "react";
 import "../../styles/login.scss";
 import Input from "../reusables/Input";
 import Button from "../reusables/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Password from "../reusables/Password";
 import Logo from "../reusables/Logo";
 
 export default function Login() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  interface ILogin {
+    email: string;
+    password: string;
+  }
+  const [formData, setFormData] = useState<ILogin>({ email: "", password: "" });
+  const navigate = useNavigate();
   return (
     <div className="login">
       <div className="img-container">
@@ -41,7 +46,7 @@ export default function Login() {
             }
           />
           <Link to="">Forgot PASSWORD?</Link>
-          <Button onClick={() => {}} title="Login" width="100%" />
+          <Button onClick={() => navigate("/")} title="Login" width="100%" />
         </div>
       </div>
     </div>

@@ -65,6 +65,15 @@ export default function Filter({
       );
       setList(users);
     }
+
+    if (type === "date joined") {
+      const filterDate = new Date(formData.date).toDateString();
+      const users: Array<IData> = data.filter((el: IData) => {
+        const date = new Date(el.date).toDateString();
+        return date === filterDate;
+      });
+      setList(users);
+    }
     setShow(false);
   }
 
@@ -91,7 +100,7 @@ export default function Filter({
               id="organization"
               options={list}
               value={formData.organization}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                 setFormData({ ...formData, organization: e.target.value })
               }
             />
@@ -150,7 +159,7 @@ export default function Filter({
               id="status"
               options={["active", "inactive", "pending", "blacklisted"]}
               value={formData.status}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                 setFormData({ ...formData, status: e.target.value })
               }
             />

@@ -1,3 +1,5 @@
+import { IData } from "../interfaces/dataInterface";
+
 export function getStoredItem(key: string) {
   const itemStr = localStorage.getItem(key);
 
@@ -16,7 +18,7 @@ export function getStoredItem(key: string) {
   return item.value;
 }
 
-export function storeItem(key: string, value: any, ttl: number) {
+export function storeItem(key: string, value: Array<IData>, ttl: number) {
   const now = new Date();
 
   const item = {

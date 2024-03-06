@@ -14,17 +14,52 @@ export default function ViewUser() {
   const navigate = useNavigate();
   const [index, setIndex] = useState<number>(0);
   const params = useParams();
-  const [user, setUser] = useState<IData>();
   const [loading, setLoading] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
   const data = getStoredItem("data");
+  const [user, setUser] = useState<IData>({
+    _id: "",
+    index: 0,
+    status: "",
+    organization: "",
+    date: "",
+    name: "",
+    balance: "",
+    tier: 3,
+    accountNumber: 9912345678,
+    username: "",
+    bankName: "",
+    phone: "",
+    email: "",
+    bvn: 7060780922,
+    gender: "",
+    maritalStatus: "",
+    children: "",
+    typeOfResidence: "",
+    levelOfEducation: "",
+    employmentStatus: "",
+    sectorOfEmployment: "",
+    durationOfEmployment: "",
+    officialEmail: "",
+    monthlyIncome: "",
+    loanRepayment: "",
+    twitter: "",
+    facebook: "",
+    instagram: "",
+    guarantors: {
+      name: "",
+      email: "",
+      phone: "",
+      relationship: "",
+    },
+  });
 
   useEffect(() => {
     setLoading(true);
-    const newUser = data.find((el: IData) => el._id === params.id);
+    const newUser: IData = data.find((el: IData) => el._id === params.id);
     setLoading(false);
     setUser(newUser);
-  }, [params.id]);
+  }, [params.id, data]);
 
   const balance = String(user?.balance)?.split("").slice(1).join("");
 
@@ -56,10 +91,8 @@ export default function ViewUser() {
     }
   }
 
-  console.log(user?.status);
-
   return (
-    <Wrapper search={search} setSearch={setSearch}>
+    <Wrapper onSearch={() => {}} search={search} setSearch={setSearch}>
       {loading ? (
         <ReusableSpinner title="Fetching User" />
       ) : (

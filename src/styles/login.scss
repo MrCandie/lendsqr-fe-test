@@ -26,11 +26,11 @@
       }
       .auth {
         @include flex(start, start, no-wrap, 100%, row, 0rem);
-        width: 80%;
+        // width: 80%;
         img {
           width: 100%;
           object-fit: contain;
-          height: 330px;
+          height: 340px;
         }
       }
     }

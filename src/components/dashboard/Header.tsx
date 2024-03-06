@@ -9,9 +9,11 @@ import { AiOutlineMenu } from "react-icons/ai";
 export default function Header({
   search,
   setSearch,
+  onSearch,
 }: {
   search: string;
   setSearch: (e: string) => void;
+  onSearch: () => void;
 }) {
   const navigate = useNavigate();
 
@@ -27,6 +29,7 @@ export default function Header({
       </div>
       <div className="info">
         <Search
+          searchHandler={onSearch}
           value={search}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setSearch(e.target.value)

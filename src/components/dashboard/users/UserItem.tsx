@@ -19,7 +19,15 @@ const months = [
   "dec",
 ];
 
-export default function UserItem({ user, i }: { user: IData; i: number }) {
+export default function UserItem({
+  user,
+  i,
+  setList,
+}: {
+  user: IData;
+  i: number;
+  setList: (e: Array<IData>) => void;
+}) {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [index, setIndex] = useState(0);
@@ -102,7 +110,14 @@ export default function UserItem({ user, i }: { user: IData; i: number }) {
             }}
           />
         </div>
-        {show && index === i && <MenuView id={id} />}
+        {show && index === i && (
+          <MenuView
+            setShow={setShow}
+            setList={setList}
+            status={user?.status}
+            id={id}
+          />
+        )}
       </div>
     </>
   );

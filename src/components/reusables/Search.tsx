@@ -1,14 +1,13 @@
-import { useState } from "react";
 import "../../styles/search.scss";
 import { BsSearch } from "react-icons/bs";
 
 interface Input {
   value: string;
-  onChange: (e: any) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  searchHandler: () => void;
 }
 
-export default function Search({ value, onChange }: Input) {
-  const [type, setType] = useState("password");
+export default function Search({ value, onChange, searchHandler }: Input) {
   return (
     <div className="search">
       <input
@@ -17,11 +16,7 @@ export default function Search({ value, onChange }: Input) {
         value={value}
         placeholder="Search for anything"
       />
-      <button
-        onClick={() =>
-          type === "password" ? setType("text") : setType("password")
-        }
-      >
+      <button onClick={searchHandler}>
         <BsSearch />
       </button>
     </div>

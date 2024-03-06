@@ -6,7 +6,7 @@ interface Input {
   value: string;
   type: string;
   placeholder: string;
-  onChange: any;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Input({

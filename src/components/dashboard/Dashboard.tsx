@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import PaginationComponent from "../pagination/Pagination";
 import { data } from "../../utils/data";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { IData } from "../../interfaces/dataInterface";
 import { getStoredItem, storeItem } from "../../utils/lib";
 
@@ -28,7 +28,9 @@ export default function Dashboard() {
   const [all, setAll] = useState<Array<IData>>([]);
   const [search, setSearch] = useState<string>("");
 
-  const list = getStoredItem("data") || [];
+  const list = useMemo(() => {
+    return getStoredItem("data") || [];
+  }, []);
 
   const menuList = [
     { src: "/user-icon.png", title: list.length, text: "users" },
@@ -60,7 +62,7 @@ export default function Dashboard() {
     setTotal(list?.length);
   }, [list]);
 
-  useEffect(() => {
+  function searchHandler() {
     const val = search?.trim()?.toLowerCase();
     const filtered = list.filter(
       (el: IData) =>
@@ -71,10 +73,11 @@ export default function Dashboard() {
     );
     const all: Array<IData> = filtered?.slice(firstIndex, lastIndex);
     setAll(all);
-  }, [search]);
+    setSearch("");
+  }
 
   return (
-    <Wrapper setSearch={setSearch} search={search}>
+    <Wrapper onSearch={searchHandler} setSearch={setSearch} search={search}>
       <h1>Users</h1>
       <div className="card-wrapper">
         {menuList.map((el: IList, i: number) => (

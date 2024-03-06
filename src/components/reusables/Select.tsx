@@ -4,7 +4,7 @@ interface Input {
   id: string;
   label?: string;
   value: string;
-  onChange: any;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   options: Array<string>;
 }
 
