@@ -38,7 +38,7 @@ const router = createBrowserRouter(
             <ViewUser />
           </Suspense>
         }
-        path="/user/:id"
+        path="/:id"
       />
       <Route
         element={

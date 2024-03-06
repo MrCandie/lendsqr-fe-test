@@ -29,7 +29,7 @@ export default function MenuView({
     {
       src: "/eye.png",
       title: "View Details",
-      onClick: () => navigate(`/user/${id}`),
+      onClick: () => navigate(`/${id}`),
       show: true,
     },
     {
