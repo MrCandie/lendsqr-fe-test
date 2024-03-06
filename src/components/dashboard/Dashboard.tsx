@@ -33,15 +33,15 @@ export default function Dashboard() {
   }, []);
 
   const menuList = [
-    { src: "/user-icon.png", title: list.length, text: "users" },
+    { src: "/user-icon.png", title: all.length, text: "users" },
     {
       src: "/active-user.png",
-      title: list?.filter((el: IData) => el.status === "active")?.length,
+      title: all?.filter((el: IData) => el.status === "active")?.length,
       text: "active users",
     },
     {
       src: "/user-loan.png",
-      title: list?.filter((el: IData) => el.loanRepayment)?.length,
+      title: all?.filter((el: IData) => el.loanRepayment)?.length,
       text: "users with loan",
     },
     { src: "/user-savings.png", title: 0, text: "users with savings" },
