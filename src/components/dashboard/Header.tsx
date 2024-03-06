@@ -21,7 +21,7 @@ export default function Header({
   const [show, setShow] = useState<boolean>(false);
 
   return (
-    <div className="header">
+    <div className="header" title="header">
       <div className="menu-wrapper">
         <span onClick={() => setShow(true)}>
           <AiOutlineMenu />

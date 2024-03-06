@@ -6,7 +6,7 @@ export default function PersonalInformation({ user }: { user: IData }) {
   return (
     <div className="personal-information">
       <div className="personal-information-inner">
-        <h1>Personal Information</h1>
+        <h1 title="Personal Information">Personal Information</h1>
         {/* personal information */}
         <div className="personal-information-wrapper">
           <ReusableItem title="full name" text={user?.name} />

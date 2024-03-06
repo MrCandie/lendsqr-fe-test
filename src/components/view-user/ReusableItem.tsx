@@ -7,7 +7,7 @@ export default function ReusableItem({
 }) {
   return (
     <div className="title-wrapper">
-      <p>{title}</p>
+      <p title="Title">{title}</p>
       <h1>{text}</h1>
     </div>
   );

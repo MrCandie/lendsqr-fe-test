@@ -19,26 +19,27 @@ const router = createBrowserRouter(
       <Route
         element={
           <Suspense fallback={<ReusableSpinner />}>
+            <Dashboard />
+          </Suspense>
+        }
+        index
+      />
+      <Route
+        element={
+          <Suspense fallback={<ReusableSpinner />}>
             <Login />
           </Suspense>
         }
         path="/login"
       />
-      <Route
-        element={
-          <Suspense fallback={<ReusableSpinner />}>
-            <Dashboard />
-          </Suspense>
-        }
-        path="/"
-      />
+
       <Route
         element={
           <Suspense fallback={<ReusableSpinner />}>
             <ViewUser />
           </Suspense>
         }
-        path="/:id"
+        path=":id"
       />
       <Route
         element={

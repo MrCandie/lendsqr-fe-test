@@ -1,30 +1,45 @@
-# React + TypeScript + Vite
+# LENDSQR Frontend Engineer assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This admin console was built with Reactjs and Typescript and styled with SCSS;
 
-Currently, two official plugins are available:
+## Functionalities
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This admin console is designed to view a record of 500 users, get their complete personal details and loan details,
 
-## Expanding the ESLint configuration
+Allows admin to either blacklist/Activate users.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Allows admin to filter users based on either their account status, email address, organization, phone number and date they joined.
 
-- Configure the top-level `parserOptions` property like this:
+Finally it also provides statistics at a glance to the admin.
+
+## Packages used
+
+Just 5 packages was used in building this admin console
+
+- React
+- ReactDOM
+- React Router Dom: For routing
+- SASS: Styling library
+- Swiperjs: To enforce responsiveness of stats cards on mobile screens
+- Typescript
+- React icons: Icons used in this app;
+
+## Starting this app
 
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+npm start
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To start this app.
+
+## APPLICATION URL
+
+https://akinwumi-adekanmi-lendsqr-fe-test.vercel.app/login
+
+## Github URL
+
+https://github.com/MrCandie
+
+## Portfolio URL
+
+https:mrcandie.com

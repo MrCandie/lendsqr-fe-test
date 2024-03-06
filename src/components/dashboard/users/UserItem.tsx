@@ -46,7 +46,7 @@ export default function UserItem({
 
   return (
     <>
-      <div className="user-item">
+      <div title="user-item" className="user-item">
         <h1 onClick={() => navigate(`/${user._id}`)} className="organization">
           {user?.organization}
         </h1>

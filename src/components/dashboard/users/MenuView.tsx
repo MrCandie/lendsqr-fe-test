@@ -77,7 +77,7 @@ export default function MenuView({
   }
 
   return (
-    <div className="menu-view">
+    <div title="menu-view" className="menu-view">
       {menuList.map((el: IMenu, i: number) => (
         <>
           {el.show && (

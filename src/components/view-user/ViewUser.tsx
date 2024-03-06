@@ -5,7 +5,7 @@ import { MdStar } from "react-icons/md";
 import { MdStarBorder } from "react-icons/md";
 import UserTab from "./UserTab";
 import PersonalInformation from "./PersonalInformation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { IData } from "../../interfaces/dataInterface";
 import ReusableSpinner from "../reusables/ReusableSpinner";
 import { getStoredItem, storeItem } from "../../utils/lib";
@@ -16,7 +16,9 @@ export default function ViewUser() {
   const params = useParams();
   const [loading, setLoading] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
-  const data = getStoredItem("data");
+  const data = useMemo(() => {
+    return getStoredItem("data") || [];
+  }, []);
   const [user, setUser] = useState<IData>({
     _id: "",
     index: 0,
@@ -56,7 +58,7 @@ export default function ViewUser() {
 
   useEffect(() => {
     setLoading(true);
-    const newUser: IData = data.find((el: IData) => el._id === params.id);
+    const newUser = data.find((el: IData) => el._id === params.id);
     setLoading(false);
     setUser(newUser);
   }, [params.id, data]);
@@ -97,16 +99,27 @@ export default function ViewUser() {
         <ReusableSpinner title="Fetching User" />
       ) : (
         <>
-          <div onClick={() => navigate("/")} className="go-back">
+          <div
+            title="view user"
+            onClick={() => navigate("/")}
+            className="go-back"
+          >
             <BsArrowLeft />
             <p>Back to Users</p>
           </div>
 
           <div className="view-header">
-            <h1>User Details</h1>
+            <h1 title="view-heading">User Details</h1>
             <div className="view-btn-wrapper">
               {user?.status !== "blacklisted" && (
-                <button onClick={blacklistUser} className="blacklist-btn">
+                <button
+                  title="blacklisted"
+                  style={{
+                    opacity: user?.status !== "blacklisted" ? "100%" : 0,
+                  }}
+                  onClick={blacklistUser}
+                  className="blacklist-btn"
+                >
                   blacklist user
                 </button>
               )}

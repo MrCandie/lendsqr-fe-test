@@ -23,7 +23,7 @@ export default function Filter({
     organization: "",
   });
 
-  const data = getStoredItem("data") || "";
+  const data = getStoredItem("data") || [];
 
   const list = data.map((el: IData) => el.organization);
 
