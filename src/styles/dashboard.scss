@@ -366,7 +366,7 @@
                 @include flex(center, center, no-wrap, "", row, 0rem);
                 padding: 0.3rem 0.4rem;
                 border-radius: 16px;
-                font-size: 9px;
+                font-size: 13px;
               }
             }
           }
@@ -390,6 +390,7 @@
           text-transform: capitalize;
           h1 {
             padding: 0.3rem 0.1rem;
+            font-size: 9px;
           }
         }
 
