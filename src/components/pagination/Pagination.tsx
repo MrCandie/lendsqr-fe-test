@@ -1,5 +1,6 @@
 import { FaLessThan } from "react-icons/fa6";
 import { FaGreaterThan } from "react-icons/fa6";
+import { useState } from "react";
 
 export default function PaginationComponent({
   total,
@@ -15,6 +16,7 @@ export default function PaginationComponent({
   setPerPage: (e: number) => void;
 }) {
   const totalPage = total / +perPage;
+  const [count, setCount] = useState<number>(2);
 
   return (
     <div className="pagination">
@@ -45,19 +47,30 @@ export default function PaginationComponent({
           <FaLessThan />
         </button>
 
-        {Array.from({ length: totalPage }, (_, i) => (
-          <button
-            className={
-              +currentPage === i + 1 ? "paginate-active" : "paginate-btn"
-            }
-            key={i}
-            onClick={() => {
-              setCurrentPage(i + 1);
-            }}
-          >
-            {i + 1}
-          </button>
-        ))}
+        {Array.from({ length: totalPage }, (_, i) => {
+          return (
+            <>
+              {i > count && i !== +totalPage - 1 ? (
+                <p style={{ margin: 0 }}>.</p>
+              ) : (
+                <button
+                  className={
+                    +currentPage === i + 1 ? "paginate-active" : "paginate-btn"
+                  }
+                  key={i}
+                  onClick={() => {
+                    if (i === count) {
+                      setCount((prev: number) => prev + 1);
+                    }
+                    setCurrentPage(i + 1);
+                  }}
+                >
+                  {i + 1}
+                </button>
+              )}
+            </>
+          );
+        })}
 
         <button
           onClick={() => {

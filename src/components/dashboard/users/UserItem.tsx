@@ -44,16 +44,20 @@ export default function UserItem({
   const day = formatedDate.getDate();
   const time = formatedDate.toLocaleTimeString();
 
+  function viewUser() {
+    navigate(`/users/${user._id}`);
+  }
+
   return (
     <>
       <div title="user-item" className="user-item">
-        <h1 onClick={() => navigate(`/${user._id}`)} className="organization">
+        <h1 onClick={viewUser} className="organization">
           {user?.organization}
         </h1>
-        <h1 onClick={() => navigate(`/${user._id}`)} className="username">
+        <h1 onClick={viewUser} className="username">
           {user?.username}
         </h1>
-        <h1 onClick={() => navigate(`/${user._id}`)} className="email">
+        <h1 onClick={viewUser} className="email">
           {user?.email
             ? user?.email
                 ?.slice(0, 20)
@@ -63,12 +67,12 @@ export default function UserItem({
                 )
             : ""}
         </h1>
-        <h1 onClick={() => navigate(`/${user._id}`)} className="phone">
+        <h1 onClick={viewUser} className="phone">
           {user?.phone}
         </h1>
         <h1
           style={{ textTransform: "capitalize" }}
-          onClick={() => navigate(`/${user._id}`)}
+          onClick={viewUser}
           className="date"
         >
           {`${months[month]} ${day}, ${year} ${time}`}

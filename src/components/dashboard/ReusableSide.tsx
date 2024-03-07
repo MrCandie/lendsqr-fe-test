@@ -12,7 +12,7 @@ const data = [
   {
     title: "customers",
     options: [
-      { title: "user", src: "/user.png", path: "/" },
+      { title: "user", src: "/user.png", path: "/users" },
       { title: "guarantors", src: "/guarantor.png", path: "/guarantor" },
       { title: "loans", src: "/loan.png", path: "/loans" },
       {
@@ -71,12 +71,7 @@ export default function ReusableSide() {
         src="/case.png"
         show={true}
       />
-      <Menu
-        path="/dashboard"
-        title="Dashboard"
-        src="/dashboard.png"
-        show={false}
-      />
+      <Menu path="/" title="Dashboard" src="/dashboard.png" show={false} />
       <div className="nav-wrapper">
         {data?.map(
           (el: { title: string; options: Array<IOptions> }, i: number) => (
