@@ -77,10 +77,10 @@ export default function ReusableSide() {
           (el: { title: string; options: Array<IOptions> }, i: number) => (
             <div key={i} className="nav-item">
               <h1>{el.title}</h1>
-              {el.options.map((item: IOptions, i: number) => (
+              {el.options.map((item: IOptions, index: number) => (
                 <Menu
                   path={item.path}
-                  key={i}
+                  key={index}
                   title={item.title}
                   src={item.src}
                   show={false}

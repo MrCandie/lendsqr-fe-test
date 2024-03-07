@@ -26,6 +26,7 @@
       }
       .auth {
         @include flex(start, start, no-wrap, 100%, row, 0rem);
+        margin-bottom: 8rem;
         // width: 80%;
         img {
           width: 100%;
@@ -44,7 +45,7 @@
     padding: 1rem;
 
     .inner-container {
-      @include flex(start, center, no-wrap, 70%, column, 1rem);
+      @include flex(start, center, no-wrap, 70%, column, 1.5rem);
 
       .logo-mobile {
         display: none;
@@ -54,12 +55,14 @@
         font-size: 40px;
         font-weight: bold;
         margin: 0rem;
+        font-family: "AvenirBold", sans-serif;
       }
       p {
         color: $textColor;
         font-size: 20px;
         font-weight: 400;
         margin: 0rem;
+        font-family: "AvenirRegular", sans-serif;
       }
     }
   }
@@ -68,6 +71,7 @@
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 600;
+    font-family: "AvenirRegular", sans-serif;
   }
 }
 

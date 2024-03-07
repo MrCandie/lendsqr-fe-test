@@ -46,7 +46,7 @@ export default function Login() {
             }
           />
           <Link to="">Forgot PASSWORD?</Link>
-          <Button onClick={() => navigate("/")} title="Login" width="100%" />
+          <Button onClick={() => navigate("/")} title="LOG IN" width="100%" />
         </div>
       </div>
     </div>

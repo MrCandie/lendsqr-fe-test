@@ -478,6 +478,9 @@
       background-color: white;
       overflow: scroll;
       box-shadow: $boxShadow;
+      padding: 2rem 0rem;
+      position: relative;
+      z-index: 20;
 
       .side-inner {
         @include flex(start, start, no-wrap, 100%, column, 1rem);

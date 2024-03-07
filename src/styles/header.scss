@@ -4,8 +4,10 @@
 .header {
   @include flex(center, space-between, no-wrap, 100%, row, 0rem);
   background-color: white;
+  position: relative;
+  z-index: 50;
   padding: 1rem 0rem;
-  box-shadow: $boxShadow;
+  box-shadow: $boxShadowSm;
 
   .mobile-menu {
     display: none;

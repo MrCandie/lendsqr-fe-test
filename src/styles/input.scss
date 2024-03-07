@@ -8,8 +8,9 @@
     padding: 1rem 0rem;
     width: 100%;
     outline: none;
-    border: 1px solid #ccc;
     color: $titleColor;
+    border: 2px solid #ccc;
+    border-radius: 4px;
   }
   input::placeholder {
     padding: 1rem;
